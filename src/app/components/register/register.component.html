@@ -1,0 +1,24 @@
+<div class="container-fluid d-flex justify-content-start align-items-center" style="margin-top: -56px;">
+    <div class="vh-100 w-50 d-flex justify-content-center align-items-center flex-column">
+        <h2>Sign up</h2>
+        <form [formGroup] = "formRegister" (ngSubmit) = "auth()" method = "POST" ngNativeValidate>
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" formControlName="email" class="form-control" required/>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" formControlName="password" class="form-control" required/>
+            <label for="passwordConfirm">Confirm password:</label>
+            <input type="password" name="passwordConfirm" id="passwordConfirm" formControlName="passwordConfirm" class="form-control" required/>
+            <input class="w-100 mt-2" value="Create account" type="submit">
+        </form>
+    </div>
+    <div class="vh-100 w-50 d-flex justify-content-center align-items-center flex-column">
+        <h2>Join us, we have cookies</h2>
+
+        <p class="text-muted">Very soon you will systematize all your affairs</p>
+
+        <div class="twoButtonLinks">
+            <a class="btn btn-primary btn-lg w-100 mb-1" role="button" aria-disabled="true" href="/login">Sign in</a>
+            <a class="btn btn-primary btn-lg w-100" role="button" aria-disabled="true" href="/">Homepage</a>
+        </div>
+    </div>
+</div>

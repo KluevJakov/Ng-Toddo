@@ -1,0 +1,22 @@
+<div class="container-fluid d-flex justify-content-start align-items-center" style="margin-top: -56px;">
+    <div class="vh-100 w-50 d-flex justify-content-center align-items-center flex-column">
+        <h2>Sign in</h2>
+        <form [formGroup] = "formLogin" (ngSubmit) = "login()" method = "POST" ngNativeValidate>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" formControlName="email" class="form-control" required/>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" formControlName="password" class="form-control" minlength="8" maxlength="20" required/>
+            <input class="w-100 mt-2" value="Login" type="submit">
+        </form>
+    </div>
+    <div class="vh-100 w-50 d-flex justify-content-center align-items-center flex-column">
+        <h2>We are glad that you stay with us</h2>
+
+        <p class="text-muted">it would be cool if you invited your friends here</p>
+
+        <div class="twoButtonLinks">
+            <a class="btn btn-primary btn-lg w-100 mb-1" role="button" aria-disabled="true" href="/register">Sign up</a>
+            <a class="btn btn-primary btn-lg w-100" role="button" aria-disabled="true" href="/">Homepage</a>
+        </div>
+    </div>
+</div>
