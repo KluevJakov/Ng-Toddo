@@ -3,7 +3,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AppComponent } from 'src/app/app.component';
-import { Sheet } from 'src/app/models/sheet/sheet';
+import { Sheet } from 'src/app/models/sheet';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 import { environment } from 'src/environments/environment';
 

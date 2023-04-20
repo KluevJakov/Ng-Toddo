@@ -17,6 +17,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { CommonModule } from '@angular/common';
 import { SheetsitemComponent } from './components/sheets/sheetsitem/sheetsitem.component';
+import { UserProfileBlockComponent } from './templates/user-profile-block/user-profile-block.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SheetsitemComponent } from './components/sheets/sheetsitem/sheetsitem.c
     ProfileComponent,
     SheetsComponent,
     ModalContentWithInterceptorComponent,
-    SheetsitemComponent
+    SheetsitemComponent,
+    UserProfileBlockComponent
   ],
   imports: [
     BrowserModule,

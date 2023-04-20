@@ -3,9 +3,9 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AppComponent } from 'src/app/app.component';
-import { Group } from 'src/app/models/group/group';
-import { Sheet } from 'src/app/models/sheet/sheet';
-import { User } from 'src/app/models/user/user';
+import { Group } from 'src/app/models/group';
+import { Sheet } from 'src/app/models/sheet';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 import { environment } from 'src/environments/environment';
 

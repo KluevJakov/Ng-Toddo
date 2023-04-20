@@ -1,6 +1,6 @@
-import { Group } from "../group/group";
-import { Stage } from "../stage/stage";
-import { User } from "../user/user";
+import { Group } from "./group";
+import { Stage } from "./stage";
+import { User } from "./user";
 
 export class Sheet {
     id!: number;
