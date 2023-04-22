@@ -1,4 +1,3 @@
-import { Group } from "./group";
 import { Stage } from "./stage";
 import { User } from "./user";
 
@@ -8,7 +7,6 @@ export class Sheet {
     description!: string;
     isGroup!:boolean;
     creator!:User;
-    assigned?:Group;
     tasks?:Array<Task>;
     stages?:Array<Stage>;
 }

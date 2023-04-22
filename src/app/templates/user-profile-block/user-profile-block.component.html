@@ -7,8 +7,7 @@
                     <div class="w-75">
                         <span class="card-subtitle text-muted pb-2">ФИО: </span><span>{{ user }}</span> <br>
                         <span class="card-subtitle text-muted pb-2">Email: </span><span>{{ user.email }}</span> <br>
-                        <span class="card-subtitle text-muted pb-2">Роль: </span><span>{{ user.roles[0].displayName
-                            }}</span> <br>
+                        <span class="card-subtitle text-muted pb-2">Роль: </span><span>{{ user.roles[0].displayName}}</span> <br>
                     </div>
                     <div class="w-25">
                         <img class="rounded-circle border border-4 w-100" src="assets/imgs/human.png">
@@ -22,7 +21,7 @@
                 <div class="card-header h5">Мои политики безопасности</div>
                 <div class="card-body d-flex flex-column">
                     <p class="text-center">Ознакомьтесь с политиками, назначенными вам администратором</p>
-                    <button class="btn btn-outline-light">Ознакомиться</button>
+                    <button class="btn btn-outline-light" (click)="policyViewModal">Ознакомиться</button>
                 </div>
             </div>
         </div>
@@ -32,7 +31,7 @@
                 <div class="card-header h5">Репортинг инцидента</div>
                 <div class="card-body d-flex flex-column">
                     <p class="text-center">Сообщите о событии информационной безопасности</p>
-                    <button class="btn btn-outline-light">Заполнить форму</button>
+                    <button class="btn btn-outline-light" (click)="reportModal">Заполнить форму</button>
                 </div>
             </div>
         </div>

@@ -18,6 +18,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { CommonModule } from '@angular/common';
 import { SheetsitemComponent } from './components/sheets/sheetsitem/sheetsitem.component';
 import { UserProfileBlockComponent } from './templates/user-profile-block/user-profile-block.component';
+import { PolicyViewModalComponent } from './templates/policy-view-modal/policy-view-modal.component';
 
 @NgModule({
   declarations: [

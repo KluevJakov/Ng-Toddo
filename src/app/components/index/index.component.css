@@ -1,0 +1,9 @@
+#promoInner {
+    margin-top: -56px;
+}
+
+#promoOuter {
+    background: url("/assets/imgs/giphy.gif") !important;
+    background-position: center !important;
+    background-size: cover !important;
+}
