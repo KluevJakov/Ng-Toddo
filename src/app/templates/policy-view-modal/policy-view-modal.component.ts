@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 
 const API_URL: string = environment.apiUrl;
@@ -13,9 +14,12 @@ const API_URL: string = environment.apiUrl;
 })
 export class PolicyViewModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
 
+  close() {
+    this.activeModal.dismiss();
+  }
 }

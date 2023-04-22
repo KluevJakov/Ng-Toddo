@@ -14,6 +14,10 @@ export class IndexComponent implements OnInit {
     
   }
 
+  isAuth() : boolean {
+    return this.authService.isUserLoggedIn();
+  }
+
   logout() {
     this.authService.logOut();
   }

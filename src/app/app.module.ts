@@ -12,13 +12,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { ModalContentWithInterceptorComponent, SheetsComponent } from './components/sheets/sheets.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { CommonModule } from '@angular/common';
-import { SheetsitemComponent } from './components/sheets/sheetsitem/sheetsitem.component';
 import { UserProfileBlockComponent } from './templates/user-profile-block/user-profile-block.component';
-import { PolicyViewModalComponent } from './templates/policy-view-modal/policy-view-modal.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +24,6 @@ import { PolicyViewModalComponent } from './templates/policy-view-modal/policy-v
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    SheetsComponent,
-    ModalContentWithInterceptorComponent,
-    SheetsitemComponent,
     UserProfileBlockComponent
   ],
   imports: [

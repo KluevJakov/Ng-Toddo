@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(public auth: AuthService) {}
 
   logout() {
-    AppComponent.alertMsg("You successfully logged out", "success");
+    AppComponent.alertMsg("Успешная деавторизация", "success");
     this.auth.logOut();
   }
 

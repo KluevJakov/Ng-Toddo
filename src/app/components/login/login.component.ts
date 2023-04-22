@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.http.post<any>(API_URL + '/login', this.formLogin.value)
       .subscribe(
         (result: any) => {
-          AppComponent.alertMsg("Successfully sign in", "success");
+          AppComponent.alertMsg("Успешная авторизация", "success");
           sessionStorage.setItem('user', JSON.stringify(result));
           this.router.navigate(['/profile']);
         },

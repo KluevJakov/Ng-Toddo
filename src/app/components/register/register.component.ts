@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     this.register(this.formRegister)
       .subscribe(
         (result: any) => {
-          AppComponent.alertMsg("Successfully sign up", "success");
+          AppComponent.alertMsg("Успешная регистрация", "success");
           this.router.navigate(['/login']);
         },
         (error: HttpErrorResponse) => {

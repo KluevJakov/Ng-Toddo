@@ -1,8 +1,8 @@
-<header class="w-100 d-flex bg-dark justify-content-between">
-    <nav class="navbar navbar-dark">
+<header class="w-100 d-flex justify-content-between" style="z-index: 1;position: relative;">
+    <nav class="navbar">
         <a class="navbar-brand ms-3" href="/">Viano</a>
     </nav>
-    <nav class="navbar navbar-dark" *ngIf="auth.isUserLoggedIn()">
+    <nav class="navbar" *ngIf="auth.isUserLoggedIn()">
         <a class="me-3" href="/profile">Профиль</a>
         <a class="me-3" href="#" (click)="logout()">Выход</a>
     </nav>

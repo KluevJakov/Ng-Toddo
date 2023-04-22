@@ -1,6 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { ProfileComponent } from 'src/app/components/profile/profile.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/AuthService/auth.service';

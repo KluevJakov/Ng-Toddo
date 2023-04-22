@@ -3,21 +3,20 @@
         <div class="ms-5 d-flex">
             <div class="vh-100 w-50 d-flex justify-content-center align-items-center flex-column user-select-none">
                 <div>
-                    <h1 class="display-3">Viano</h1>
-                    <h4>Веб-приложение, реализующее автоматизацию менеджмента инцидентов
+                    <h1 class="display-3" style="color: white">Viano</h1>
+                    <h4 style="color: #b1b1b1">Веб-приложение, реализующее автоматизацию менеджмента инцидентов
                         информационной
                         безопасности в соответствии с ГОСТом РИСО/МЭКТО 18044—2007.</h4>
                 </div>
             </div>
 
             <div class="vh-100 w-50 d-flex justify-content-center align-items-center flex-column">
-                <h2 class="user-select-none">Вход в аккаунт: </h2>
+                <h2 class="user-select-none" style="color: #b1b1b1">Авторизация: </h2>
                 <div class="w-50 text-center d-flex justify-content-center align-items-center flex-column">
-                    <a class="btn btn-dark btn-lg w-100" role="button" aria-disabled="true" href="/login">Войти</a>
+                    <a *ngIf="!isAuth()" class="btn btn-dark btn-lg w-100" role="button" aria-disabled="true" href="/login">Войти</a>
+                    <a *ngIf="isAuth()" class="btn btn-dark btn-lg w-100" role="button" aria-disabled="true" href="/profile">Мой профиль</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<script src="/assets/js/promo.js"></script>
