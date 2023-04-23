@@ -1,5 +1,12 @@
-<div class="vh-100 container-fluid" style="margin-top: -56px;">
-  <div class="mt-5 py-5 d-flex h-100 align-items-center justify-content-center">
-      <user-profile-block class="w-100"></user-profile-block>
+<div class="container-fluid" style="margin-top: -56px;">
+  <div class="mt-5 py-5 d-flex h-100 align-items-center justify-content-center" *ngIf="user">
+    <adm-head-block class="w-100" *ngIf="user.department.name == 'Руководитель организации'" [user]="user"></adm-head-block>
+    <adm-admin-block class="w-100" *ngIf="user.department.name == 'Администратор ИБ'" [user]="user"></adm-admin-block>
+    <manager-profile-block class="w-100" *ngIf="user.department.name == 'Менеджер ИБ'" [user]="user"></manager-profile-block>
+    <operator-regulator-block class="w-100" *ngIf="user.department.name == 'Нормативный отдел'" [user]="user"></operator-regulator-block>
+    <operator-isirt-block class="w-100" *ngIf="user.department.name == 'ГРИИБ'" [user]="user"></operator-isirt-block>
+    <operator-audit-block class="w-100" *ngIf="user.department.name == 'Отдел аудита'" [user]="user"></operator-audit-block>
+    <operator-isid-block class="w-100" *ngIf="user.department.name == 'Отдел внедрения ИС'" [user]="user"></operator-isid-block>  
+    <user-profile-block class="w-100" *ngIf="user.department.name == 'Наша организация'" [user]="user"></user-profile-block>
   </div>
 </div>

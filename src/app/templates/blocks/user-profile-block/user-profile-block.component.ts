@@ -2,9 +2,9 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/services/AuthService/auth.service';
 import { environment } from 'src/environments/environment';
-import { PolicyViewModalComponent } from '../policy-view-modal/policy-view-modal.component';
+import { PolicyViewModalComponent } from '../../modals/policy-view-modal/policy-view-modal.component';
+import { ReportModalComponent } from '../../modals/report-modal/report-modal.component';
 
 const API_URL: string = environment.apiUrl;
 
@@ -21,15 +21,7 @@ export class UserProfileBlockComponent implements OnInit {
               private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.http.get<any>(API_URL + '/profile', AuthService.getJwtHeader())
-    .subscribe(
-      (result: any) => {
-        this.user = new User(result);
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.error);
-      }
-    );
+    
   }
 
   policyViewModal() {
@@ -39,7 +31,9 @@ export class UserProfileBlockComponent implements OnInit {
   }
 
   reportModal() {
-
+    const modalRef = this.modalService.open(ReportModalComponent, { fullscreen: true });
+    //modalRef.componentInstance.ticket = ticket;
+    //modalRef.result.then((result) => { if (result) { this.tickets() } });
   }
 
 }

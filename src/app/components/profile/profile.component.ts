@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
-import { UserProfileBlockComponent } from 'src/app/templates/user-profile-block/user-profile-block.component';
+import { UserProfileBlockComponent } from 'src/app/templates/blocks/user-profile-block/user-profile-block.component';
 import { environment } from 'src/environments/environment';
 
 const API_URL: string = environment.apiUrl;
@@ -14,9 +14,19 @@ const API_URL: string = environment.apiUrl;
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private http : HttpClient) { }
+  user!: User;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    
+    this.http.get<any>(API_URL + '/profile', AuthService.getJwtHeader())
+      .subscribe(
+        (result: any) => {
+          this.user = new User(result);
+        },
+        (error: HttpErrorResponse) => {
+          console.log(error.error);
+        }
+      );
   }
 }

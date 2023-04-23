@@ -1,0 +1,83 @@
+<ng-container>
+    <div class="w-100 d-flex flex-wrap justify-content-around">
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Мои данные</div>
+                <div class="card-body d-flex">
+                    <div class="w-75 d-flex flex-column">
+                        <span class="card-subtitle pb-2">ФИО: <span class="text-muted">{{ user.surname + " " + user.name + " " + user.patronymic }}</span></span>
+                        <span class="card-subtitle pb-2">Email: <span class="text-muted">{{ user.email }}</span></span>
+                        <span class="card-subtitle pb-2">Адрес: <span class="text-muted">{{ user.address }}</span></span>
+                        <span class="card-subtitle pb-2">Департамент: <span class="text-muted">{{ user.department.name }}</span></span>
+                        <span class="card-subtitle pb-2">Должность: <span class="text-muted">{{ user.jobPosition }}</span></span>
+                        <span class="card-subtitle pb-2">Роль: <span class="text-muted">{{ user.roles[0].displayName }}</span></span>
+                        <span class="card-subtitle pb-2">Дата регистрации: <span class="text-muted">{{ user.regDate }}</span></span>
+                    </div>
+                    <div class="w-25">
+                        <img class="rounded-circle border border-4 w-100" src="assets/imgs/human.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Сотрудники</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">Управляйте сотрудниками, должностями и отделами</p>
+                    <button class="btn btn-light" (click)="employee()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">События и инциденты</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">Управляйте событиями, инцидентами и документами</p>
+                    <button class="btn btn-light" (click)="incidents()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Аналитика угроз и рисков</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">В этом раздере собрана статистика и производится оценка рисков</p>
+                    <button class="btn btn-light" (click)="analyze()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Архив событий и инцидентов ИБ</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">База обработанных событий и инцидентов</p>
+                    <button class="btn btn-light" (click)="archive()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Журнал всех событий и инцидентов</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">Полный перечень всех действий и решений</p>
+                    <button class="btn btn-light" (click)="logs()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 bg-warning cards">
+            <div class="card-block">
+                <div class="card-header h5">Глобальные настройки</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">Изменяйте эти настройки, только если понимаете, что делаете</p>
+                    <button class="btn btn-light" (click)="settings()">Перейти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

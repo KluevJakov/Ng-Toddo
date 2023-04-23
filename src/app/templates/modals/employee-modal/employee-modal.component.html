@@ -1,0 +1,72 @@
+<div class="modal-header">
+    <h4 class="modal-title">Сотрудники: </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+    <div class="container-fluid" style="display: flex;justify-content: space-around;">
+        <div class="emplCol">
+            <div class="emplRow">
+                <div class="emplHdr">Создание профиля сотрудника: </div>
+                <input class="form-control mb-1" type="text" placeholder="Email">
+                <input class="form-control mb-1" type="text" placeholder="Фамилия">
+                <input class="form-control mb-1" type="text" placeholder="Имя">
+                <input class="form-control mb-1" type="text" placeholder="Отчество">
+                <input class="form-control mb-1" type="text" placeholder="Адрес">
+                <input class="form-control mb-1" type="text" placeholder="Должность">
+                <input class="form-control btn btn-primary mb-3" type="button" value="Создать">
+            </div>
+            <div class="emplRow">
+                <div class="emplHdr">Массовая загрузка пользователей (CSV): </div>
+                <input class="form-control mb-1" type="file" accept=".csv">
+                <input class="form-control btn btn-primary mb-3" type="button" value="Загрузить">
+            </div>
+        </div>
+        <div class="emplCol" style="border-inline: 1px #dee2e6 solid;">
+            <div class="emplHdr">Список сотрудников: </div>
+            <label for="">Подразделение:</label>
+            <select class="form-control mb-1"></select>
+            <input class="form-control mb-1" type="text" placeholder="Поиск..">
+            <table>
+                <thead>
+
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="emplCol">
+            <div class="emplHdr">Управление отделами: </div>
+            <div class="emplDepRow">
+                <label for="">Руководитель организации</label>
+                <input class="form-control mb-1" disabled>
+            </div>
+            <div class="emplDepRow">
+                <label for="">Администратор ИБ</label>
+                <input class="form-control mb-1" disabled>
+            </div>
+            <div class="emplDepRow">
+                <label for="">Менеджер ИБ</label>
+                <input class="form-control mb-1" disabled>
+            </div>
+            <div class="emplDepRow">
+                <label for="">Нормативный отдел</label>
+            </div>
+            <div class="emplDepRow">
+                <label for="">ГРИИБ</label>
+            </div>
+            <div class="emplDepRow">
+                <label for="">Отдел аудита</label>
+            </div>
+            <div class="emplDepRow">
+                <label for="">Отдел внедрения ИС</label>
+            </div>
+            <div class="emplDepRow">
+                <label for="">Наша организация</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="close()">Закрыть</button>
+</div>
