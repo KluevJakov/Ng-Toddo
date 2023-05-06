@@ -36,7 +36,11 @@ export class AuthService implements CanActivate {
     return sessionStorage.getItem('user')!;
   }
 
-  static getJwtHeader() {
+  static getJwtHeaderJSON() {
     return {headers: {'Content-Type':'application/json','Authorization':"Bearer " + JSON.parse(sessionStorage.getItem('user')!).token}};
+  }
+
+  static getJwtHeaderMultipart() {
+    return {headers: {'Authorization':"Bearer " + JSON.parse(sessionStorage.getItem('user')!).token}};
   }
 }

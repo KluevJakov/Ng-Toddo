@@ -3,8 +3,78 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
 </div>
 <div class="modal-body">
-    
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Информация о сообщающем лице</h5>
+
+            <label for="">Фамилия: </label>
+            <input class="form-control mb-1" type="text" [value]="user.surname" disabled>
+
+            <label for="">Организация: </label>
+            <input class="form-control mb-1" type="text" value="Наша организация" disabled>
+
+            <label for="">Телефон: </label>
+            <input class="form-control mb-1" type="text" value="Телефон" disabled>
+
+            <label for="">Адрес: </label>
+            <input class="form-control mb-1" type="text" [value]="user.address" disabled>
+
+            <label for="">Электронная почта: </label>
+            <input class="form-control mb-1" type="email" [value]="user.email" disabled>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Описание события ИБ</h5>
+
+            <label for="">Описание события: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventDescription"></textarea>
+
+            <label for="">Что произошло: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventWhat"></textarea>
+
+            <label for="">Как произошло: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventHow"></textarea>
+
+            <label for="">Почему произошло: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventWhy"></textarea>
+
+            <label for="">Пораженные компоненты: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventDamageComponents"></textarea>
+
+            <label for="">Негативное воздействие на бизнес: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventDamageBusiness"></textarea>
+
+            <label for="">Любые идентифицированные уязвимости: </label>
+            <textarea class="form-control mb-1" [(ngModel)]="task.eventIndentVulnerability"></textarea>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Подробности о событии ИБ</h5>
+            
+            <label for="">Дата и время наступления события: </label>
+            <input class="form-control mb-1" type="datetime-local" [(ngModel)]="task.beginDate">
+
+            <label for="">Дата и время обнаружения события: </label>
+            <input class="form-control mb-1" type="datetime-local" [(ngModel)]="task.detectionDate">
+
+            <label for="">Дата и время сообщения о событии: </label>
+            <input class="form-control mb-1" type="datetime-local" [(ngModel)]="task.reportDate">
+
+            <div class="form-check form-switch mb-1">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="task.isEventEnd">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Закончилось ли событие?</label>
+            </div>
+
+            <ng-container *ngIf="task.isEventEnd">
+                <label for="">Длительность события (дни/часы/минуты): </label>
+                <input class="form-control mb-1" type="text" [(ngModel)]="task.eventDuration">
+            </ng-container>
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="report()">Отправить</button>
     <button type="button" class="btn btn-light" (click)="close()">Закрыть</button>
 </div>

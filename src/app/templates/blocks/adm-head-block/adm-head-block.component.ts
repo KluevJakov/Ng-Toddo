@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/models/user';
@@ -8,6 +8,11 @@ import { AnalyzeModalComponent } from '../../modals/analyze-modal/analyze-modal.
 import { ArchiveModalComponent } from '../../modals/archive-modal/archive-modal.component';
 import { LogModalComponent } from '../../modals/log-modal/log-modal.component';
 import { SettingsModalComponent } from '../../modals/settings-modal/settings-modal.component';
+import { Message } from 'src/app/models/message';
+import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/AuthService/auth.service';
+
+const API_URL: string = environment.apiUrl;
 
 @Component({
   selector: 'adm-head-block',
@@ -16,12 +21,31 @@ import { SettingsModalComponent } from '../../modals/settings-modal/settings-mod
 })
 export class AdmHeadBlockComponent {
   @Input() user!: User;
+  notifyCount!: number;
 
   constructor(private http : HttpClient,
               private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    
+    this.getNotifyCount();
+
+    let notifyRefresher = setInterval(this.getNotifyCount, 30000); //вынести логику в app-component
+  }
+
+  getNotifyCount() {
+    this.http.get<any>(API_URL + '/tasks/events', AuthService.getJwtHeaderJSON())
+      .subscribe({
+        next: this.refreshNotify.bind(this),
+        error: this.handleError.bind(this)
+      });
+  }
+
+  handleError(error : HttpErrorResponse) {
+    console.log(error.error);
+  }
+
+  refreshNotify(notifyCount : Message) {
+    this.notifyCount = parseInt(notifyCount.message);
   }
 
   employee() {

@@ -4,20 +4,40 @@
 </div>
 <div class="modal-body">
     <div class="container-fluid w-100 d-flex">
-        <div style="width:20%;border-right:1px solid #dee2e6;">
-            <div class="incdHdr">События: </div>
+        <div style="width:20%;padding-bottom: 25px;border:1px solid #dee2e6;">
+            <div>События: </div>
+            <div class="list-group overflow-auto" style="height: 330px;">
+                <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks0">
+                    {{task.reportDate}}
+                </button>
+            </div>
         </div>
         <div class="text-center" style="width:80%">
             <div class="incdHdr">Инциденты: </div>
             <div class="d-flex w-100">
                 <div style="width:33.333%">
                     <div class="incdHdr">Использование: </div>
+                    <div class="list-group overflow-auto" style="height: 330px;">
+                        <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks1">
+                            {{task.stage.name}}
+                        </button>
+                    </div>
                 </div>
                 <div style="width:33.333%; border-inline:1px solid #dee2e6;">
                     <div class="incdHdr">Анализ: </div>
+                    <div class="list-group overflow-auto" style="height: 330px;">
+                        <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks2">
+                            {{task.stage.name}}
+                        </button>
+                    </div>
                 </div>
                 <div style="width:33.333%">
                     <div class="incdHdr">Улучшение: </div>
+                    <div class="list-group overflow-auto" style="height: 330px;">
+                        <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks3">
+                            {{task.stage.name}}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

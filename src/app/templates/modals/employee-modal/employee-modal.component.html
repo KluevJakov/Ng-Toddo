@@ -7,62 +7,63 @@
         <div class="emplCol">
             <div class="emplRow">
                 <div class="emplHdr">Создание профиля сотрудника: </div>
-                <input class="form-control mb-1" type="text" placeholder="Email">
-                <input class="form-control mb-1" type="text" placeholder="Фамилия">
-                <input class="form-control mb-1" type="text" placeholder="Имя">
-                <input class="form-control mb-1" type="text" placeholder="Отчество">
-                <input class="form-control mb-1" type="text" placeholder="Адрес">
-                <input class="form-control mb-1" type="text" placeholder="Должность">
-                <input class="form-control btn btn-primary mb-3" type="button" value="Создать">
+                <form class="form-group" (ngSubmit) = "createUser()" ngNativeValidate>
+                    <input class="form-control mb-1" type="email" placeholder="Email" id="userEmail" required>
+                    <input class="form-control mb-1" type="text" placeholder="Фамилия" id="userSurname" required>
+                    <input class="form-control mb-1" type="text" placeholder="Имя" id="userName" required>
+                    <input class="form-control mb-1" type="text" placeholder="Отчество" id="userPatronymic" required>
+                    <input class="form-control mb-1" type="text" placeholder="Адрес" id="userAddress" required>
+                    <input class="form-control mb-1" type="text" placeholder="Должность" id="userJobPosition" required>
+                    <button class="form-control btn btn-primary mb-3" type="submit">Создать</button>
+                </form>
             </div>
             <div class="emplRow">
-                <div class="emplHdr">Массовая загрузка пользователей (CSV): </div>
-                <input class="form-control mb-1" type="file" accept=".csv">
-                <input class="form-control btn btn-primary mb-3" type="button" value="Загрузить">
+                <div class="emplHdr">Пакетная загрузка пользователей (CSV): </div>
+                <input class="form-control mb-1" type="file" accept=".csv" (change)="handleFileInput($any($event).target.files)">
+                <input class="form-control btn btn-primary mb-3" type="button" (click)="importUser()" value="Загрузить" [disabled]="allowUploadCsv">
             </div>
         </div>
         <div class="emplCol" style="border-inline: 1px #dee2e6 solid;">
             <div class="emplHdr">Список сотрудников: </div>
             <label for="">Подразделение:</label>
-            <select class="form-control mb-1"></select>
+            <select class="form-control mb-1" (change)="selectDep($any($event.target).value)">
+                <option *ngFor="let department of departmentList" [value]="department.id">{{department.name}}</option>
+            </select>
             <input class="form-control mb-1" type="text" placeholder="Поиск..">
-            <table>
-                <thead>
-
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+            <div class="list-group overflow-auto" style="height: 330px;">
+                <button type="button" class="list-group-item list-group-item-action" *ngFor="let u of usersInDep" (click)="showEditUserModal(u)">
+                    {{u.surname + " " + u.name + " " + u.patronymic}}
+                </button>
+            </div>
         </div>
-        <div class="emplCol">
-            <div class="emplHdr">Управление отделами: </div>
+        <div class="emplCol" *ngIf="depInfo">
+            <div class="emplHdr">Информация об отделах: </div>
             <div class="emplDepRow">
                 <label for="">Руководитель организации</label>
-                <input class="form-control mb-1" disabled>
+                <input class="form-control mb-1" [value]="depInfo[0]" disabled>
             </div>
             <div class="emplDepRow">
                 <label for="">Администратор ИБ</label>
-                <input class="form-control mb-1" disabled>
+                <input class="form-control mb-1" [value]="depInfo[1]" disabled>
             </div>
             <div class="emplDepRow">
                 <label for="">Менеджер ИБ</label>
-                <input class="form-control mb-1" disabled>
+                <input class="form-control mb-1" [value]="depInfo[2]" disabled>
             </div>
             <div class="emplDepRow">
-                <label for="">Нормативный отдел</label>
+                <label for="">Нормативный отдел ({{depInfo[3]}})</label>
             </div>
             <div class="emplDepRow">
-                <label for="">ГРИИБ</label>
+                <label for="">ГРИИБ ({{depInfo[4]}})</label>
             </div>
             <div class="emplDepRow">
-                <label for="">Отдел аудита</label>
+                <label for="">Отдел аудита ({{depInfo[5]}})</label>
             </div>
             <div class="emplDepRow">
-                <label for="">Отдел внедрения ИС</label>
+                <label for="">Отдел внедрения ИС ({{depInfo[6]}})</label>
             </div>
             <div class="emplDepRow">
-                <label for="">Наша организация</label>
+                <label for="">Наша организация ({{depInfo[7]}})</label>
             </div>
         </div>
     </div>

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.http.post<any>(API_URL + '/login', this.formLogin.value)
+    this.http.post<any>(API_URL + '/users/login', this.formLogin.value)
       .subscribe(
         (result: any) => {
           AppComponent.alertMsg("Успешная авторизация", "success");

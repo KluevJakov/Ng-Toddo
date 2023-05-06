@@ -1,4 +1,3 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -6,7 +5,6 @@ import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './components/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -24,6 +22,9 @@ import { OperatorIsirtBlockComponent } from './templates/blocks/operator-isirt-b
 import { OperatorAuditBlockComponent } from './templates/blocks/operator-audit-block/operator-audit-block.component';
 import { OperatorIsidBlockComponent } from './templates/blocks/operator-isid-block/operator-isid-block.component';
 
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { OperatorIsidBlockComponent } from './templates/blocks/operator-isid-blo
     HttpClientModule,
     AlertModule.forRoot(),
     ModalModule.forRoot(),
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

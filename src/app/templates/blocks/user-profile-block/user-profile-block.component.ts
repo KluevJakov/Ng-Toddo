@@ -25,14 +25,14 @@ export class UserProfileBlockComponent implements OnInit {
   }
 
   policyViewModal() {
-    const modalRef = this.modalService.open(PolicyViewModalComponent, { fullscreen: true });
+    const modalRef = this.modalService.open(PolicyViewModalComponent, { fullscreen: true, scrollable: true });
     //modalRef.componentInstance.ticket = ticket;
     //modalRef.result.then((result) => { if (result) { this.tickets() } });
   }
 
   reportModal() {
-    const modalRef = this.modalService.open(ReportModalComponent, { fullscreen: true });
-    //modalRef.componentInstance.ticket = ticket;
+    const modalRef = this.modalService.open(ReportModalComponent, { fullscreen: true, scrollable: true });
+    modalRef.componentInstance.user = this.user;
     //modalRef.result.then((result) => { if (result) { this.tickets() } });
   }
 

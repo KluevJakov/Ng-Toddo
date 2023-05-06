@@ -19,6 +19,7 @@ export class AppComponent {
   public static alertMsg(msgChange:string, typeChange:string) {
     let alertElem = document.getElementById('logoutAlert')!;
     alertElem.style.opacity = "1";
+    alertElem.style.zIndex = "1056";
 
     alertElem.innerHTML = msgChange;
 
@@ -33,6 +34,9 @@ export class AppComponent {
 
     alertElem.classList.add("alert-"+typeChange);
 
-    setTimeout(() => {alertElem.style.opacity = "0";}, 1500);
+    setTimeout(() => {
+      alertElem.style.opacity = "0";
+      alertElem.style.zIndex = "-1";
+    }, 3000);
   }
 }

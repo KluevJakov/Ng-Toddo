@@ -1,0 +1,28 @@
+<div class="modal-header">
+    <h4 class="modal-title">Редактирование пользователя: </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+    <form class="form-group" (submit)="editUser()" ngNativeValidate>
+        <label for="userEmailEdit">Email: </label>
+        <input class="form-control mb-1" type="email" placeholder="Email" id="userEmailEdit" [value]="user.email" disabled>
+        <label for="userSurnameEdit">Фамилия: </label>
+        <input class="form-control mb-1" type="text" placeholder="Фамилия" id="userSurnameEdit" [value]="user.surname" required>
+        <label for="userNameEdit">Имя: </label>
+        <input class="form-control mb-1" type="text" placeholder="Имя" id="userNameEdit" [value]="user.name" required>
+        <label for="userPatronymicEdit">Отчество: </label>
+        <input class="form-control mb-1" type="text" placeholder="Отчество" id="userPatronymicEdit" [value]="user.patronymic" required>
+        <label for="userAddressEdit">Адрес: </label>
+        <input class="form-control mb-1" type="text" placeholder="Адрес" id="userAddressEdit" [value]="user.address" required>
+        <label for="userJobPositionEdit">Должность: </label>
+        <input class="form-control mb-1" type="text" placeholder="Должность" id="userJobPositionEdit" [value]="user.jobPosition" required>
+        <label for="">Департамент: </label>
+        <select class="form-control mb-1" id="depSelectEdit">
+            <option *ngFor="let department of departmentList" [value]="department.id">{{department.name}}</option>
+        </select>
+        <button class="form-control btn btn-primary mb-3" type="submit">Редактировать</button>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="close()">Закрыть</button>
+</div>

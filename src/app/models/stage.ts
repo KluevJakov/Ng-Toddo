@@ -1,5 +1,9 @@
 export class Stage {
     id!: number;
     name!: string;
-    orderIndex!: number;
+
+    constructor(stage:any){
+        this.id = stage.id;
+        this.name = stage.name;
+    }
 }
