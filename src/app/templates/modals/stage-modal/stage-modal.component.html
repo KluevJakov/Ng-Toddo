@@ -1,0 +1,112 @@
+<div class="modal-header">
+    <h4 class="modal-title">Обработка инцидента | {{task.stage.name}} </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+    <label for="">Номер инцидента: </label>
+    <input class="form-control mb-1" type="number" [(ngModel)]="task.regNumber" [disabled]="currentUser.department.id != 3 || task.stage.id != 2">
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Информация о сообщающем лице</h5>
+
+            <label for="">Фамилия: </label>
+            <input class="form-control mb-1" type="text" [value]="task.reporter.surname" disabled>
+
+            <label for="">Организация: </label>
+            <input class="form-control mb-1" type="text" value="Наша организация" disabled>
+
+            <label for="">Телефон: </label>
+            <input class="form-control mb-1" type="text" [value]="task.reporter.phone" disabled>
+
+            <label for="">Адрес: </label>
+            <input class="form-control mb-1" type="text" [value]="task.reporter.address" disabled>
+
+            <label for="">Электронная почта: </label>
+            <input class="form-control mb-1" type="email" [value]="task.reporter.email" disabled>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Описание события ИБ</h5>
+
+            <label for="">Описание события: </label>
+            <textarea class="form-control mb-1" [value]="task.eventDescription" disabled></textarea>
+
+            <label for="">Что произошло: </label>
+            <textarea class="form-control mb-1" [value]="task.eventWhat" disabled></textarea>
+
+            <label for="">Как произошло: </label>
+            <textarea class="form-control mb-1" [value]="task.eventHow" disabled></textarea>
+
+            <label for="">Почему произошло: </label>
+            <textarea class="form-control mb-1" [value]="task.eventWhy" disabled></textarea>
+
+            <label for="">Пораженные компоненты: </label>
+            <textarea class="form-control mb-1" [value]="task.eventDamageComponents" disabled></textarea>
+
+            <label for="">Негативное воздействие на бизнес: </label>
+            <textarea class="form-control mb-1" [value]="task.eventDamageBusiness" disabled></textarea>
+
+            <label for="">Любые идентифицированные уязвимости: </label>
+            <textarea class="form-control mb-1" [value]="task.eventIndentVulnerability" disabled></textarea>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Подробности о событии ИБ</h5>
+            
+            <label for="">Дата и время наступления события: </label>
+            <input class="form-control mb-1" type="datetime-local" [value]="task.beginDate" disabled>
+
+            <label for="">Дата и время обнаружения события: </label>
+            <input class="form-control mb-1" type="datetime-local" [value]="task.detectionDate" disabled>
+
+            <div class="form-check form-switch mb-1">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [value]="task.isEventEnd" disabled>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Закончилось ли событие?</label>
+            </div>
+
+            <ng-container *ngIf="task.isEventEnd">
+                <label for="">Длительность события (дни/часы/минуты): </label>
+                <input class="form-control mb-1" type="text" [value]="task.eventDuration" disabled>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <ng-container *ngIf="task.performer">
+        <span class="badge bg-primary">В работе у: {{task.performer.department.name}}</span>
+        <ng-container *ngIf="(currentUser.department.id == 3 || currentUser.department.id == 5) && task.stage.id == 1">
+            <button type="button" class="btn btn-success" (click)="process(9)">Событие не является инцидентом</button>
+            <button type="button" class="btn btn-danger" (click)="process(2)">Событие является инцидентом</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 3 && task.stage.id == 2">
+            <button type="button" class="btn btn-success" (click)="process(3)">Назначить номер инцидента</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 6 && task.stage.id == 3">
+            <button type="button" class="btn btn-success" (click)="process(4)">Вернуть на ознакомление ГРИИБ</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 5 && task.stage.id == 4">
+            <button type="button" class="btn btn-success" (click)="process(5)">Перевести на отдел внедрения</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 7 && task.stage.id == 5">
+            <button type="button" class="btn btn-success" (click)="process(6)">Вернуть на ознакомление ГРИИБ</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 5 && task.stage.id == 6">
+            <button type="button" class="btn btn-success" (click)="process(7)">Направить руководителю ГРИИБ</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 3 && task.stage.id == 7">
+            <button type="button" class="btn btn-success" (click)="process(8)">Направить администратору ИБ</button>
+        </ng-container>
+        <ng-container *ngIf="currentUser.department.id == 2 && task.stage.id == 8">
+            <button type="button" class="btn btn-success" (click)="process(9)">Переместить в архив</button>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="task.stage.id == 9">
+        <span class="badge bg-secondary">Перемещено в архив</span>
+        <ng-container *ngIf="!task.isIncident"><span class="badge bg-success">Не является инцидентом</span></ng-container>
+        <ng-container *ngIf="task.isIncident"><span class="badge bg-danger">Является инцидентом</span></ng-container>
+    </ng-container>
+    <button type="button" class="btn btn-light" (click)="close()">Закрыть</button>
+</div>

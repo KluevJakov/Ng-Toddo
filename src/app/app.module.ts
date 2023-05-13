@@ -12,7 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { UserProfileBlockComponent } from './templates/blocks/user-profile-block/user-profile-block.component';
 import { ManagerProfileBlockComponent } from './templates/blocks/manager-profile-block/manager-profile-block.component';
 import { AdmHeadBlockComponent } from './templates/blocks/adm-head-block/adm-head-block.component';
@@ -25,6 +25,11 @@ import { OperatorIsidBlockComponent } from './templates/blocks/operator-isid-blo
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms';
+import localeRu from '@angular/common/locales/ru'
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(localeRu);
 
 @NgModule({
   declarations: [
@@ -50,7 +55,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AlertModule.forRoot(),
     ModalModule.forRoot(),
     CommonModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

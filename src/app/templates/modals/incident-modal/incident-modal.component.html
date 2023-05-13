@@ -7,8 +7,9 @@
         <div style="width:20%;padding-bottom: 25px;border:1px solid #dee2e6;">
             <div>События: </div>
             <div class="list-group overflow-auto" style="height: 330px;">
-                <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks0">
-                    {{task.reportDate}}
+                <button type="button" class="list-group-item list-group-item-action" 
+                (click)="openStageModal(task)" *ngFor="let task of tasks0">
+                    {{task.eventWhat + " | "}} {{task.reportDate | date: 'dd MMMM y' : '' : 'ru' }}
                 </button>
             </div>
         </div>
@@ -18,24 +19,27 @@
                 <div style="width:33.333%">
                     <div class="incdHdr">Использование: </div>
                     <div class="list-group overflow-auto" style="height: 330px;">
-                        <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks1">
-                            {{task.stage.name}}
+                        <button type="button" class="list-group-item list-group-item-action" 
+                        (click)="openStageModal(task)" *ngFor="let task of tasks1">
+                            {{task.eventWhat + " | "}} {{task.reportDate | date: 'dd MMMM y' : '' : 'ru' }}
                         </button>
                     </div>
                 </div>
                 <div style="width:33.333%; border-inline:1px solid #dee2e6;">
                     <div class="incdHdr">Анализ: </div>
                     <div class="list-group overflow-auto" style="height: 330px;">
-                        <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks2">
-                            {{task.stage.name}}
+                        <button type="button" class="list-group-item list-group-item-action" 
+                        (click)="openStageModal(task)" *ngFor="let task of tasks2">
+                            {{task.eventWhat + " | "}} {{task.reportDate | date: 'dd MMMM y' : '' : 'ru' }}
                         </button>
                     </div>
                 </div>
                 <div style="width:33.333%">
                     <div class="incdHdr">Улучшение: </div>
                     <div class="list-group overflow-auto" style="height: 330px;">
-                        <button type="button" class="list-group-item list-group-item-action" *ngFor="let task of tasks3">
-                            {{task.stage.name}}
+                        <button type="button" class="list-group-item list-group-item-action" 
+                        (click)="openStageModal(task)" *ngFor="let task of tasks3">
+                            {{task.eventWhat + " | "}} {{task.reportDate | date: 'dd MMMM y' : '' : 'ru' }}
                         </button>
                     </div>
                 </div>

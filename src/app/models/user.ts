@@ -7,6 +7,7 @@ export class User {
   surname!:string;
   name!:string;
   patronymic!:string;
+  phone!:string;
   address!:string;
   jobPosition!:string;
   department!:Department;
@@ -21,6 +22,7 @@ export class User {
     this.name = user.name;
     this.patronymic = user.patronymic;
     this.address = user.address;
+    this.phone = user.phone;
     this.jobPosition = user.jobPosition;
     this.department = user.department;
     this.regDate = user.regDate;

@@ -37,6 +37,12 @@ export class AppComponent {
     setTimeout(() => {
       alertElem.style.opacity = "0";
       alertElem.style.zIndex = "-1";
-    }, 3000);
+    }, 4000);
+  }
+
+  close() {
+    let alertElem = document.getElementById('logoutAlert')!;
+    alertElem.style.opacity = "0";
+    alertElem.style.zIndex = "-1";
   }
 }

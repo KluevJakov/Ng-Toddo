@@ -11,6 +11,7 @@ import { SettingsModalComponent } from '../../modals/settings-modal/settings-mod
 import { Message } from 'src/app/models/message';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
+import { Subscription, interval } from 'rxjs';
 
 const API_URL: string = environment.apiUrl;
 
@@ -22,18 +23,22 @@ const API_URL: string = environment.apiUrl;
 export class AdmHeadBlockComponent {
   @Input() user!: User;
   notifyCount!: number;
+  subscription!: Subscription;
 
-  constructor(private http : HttpClient,
-              private modalService: NgbModal) { }
+  constructor(private http : HttpClient, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.getNotifyCount();
 
-    let notifyRefresher = setInterval(this.getNotifyCount, 30000); //вынести логику в app-component
+    this.subscription = interval(10000).subscribe(x => {
+      if (this.http) {
+        this.getNotifyCount();
+      }
+    });
   }
 
   getNotifyCount() {
-    this.http.get<any>(API_URL + '/tasks/events', AuthService.getJwtHeaderJSON())
+    this.http.get<any>(API_URL + '/tasks/notifyCount', AuthService.getJwtHeaderJSON())
       .subscribe({
         next: this.refreshNotify.bind(this),
         error: this.handleError.bind(this)
@@ -48,12 +53,12 @@ export class AdmHeadBlockComponent {
     this.notifyCount = parseInt(notifyCount.message);
   }
 
-  employee() {
-    const modalRef = this.modalService.open(EmployeeModalComponent, { fullscreen: true });
-  }
-
   incidents() {
     const modalRef = this.modalService.open(IncidentModalComponent, { fullscreen: true });
+  }
+
+  employee() {
+    const modalRef = this.modalService.open(EmployeeModalComponent, { fullscreen: true });
   }
 
   analyze() {
@@ -65,10 +70,14 @@ export class AdmHeadBlockComponent {
   }
 
   logs() {
-    const modalRef = this.modalService.open(LogModalComponent, { fullscreen: true });
+    const modalRef = this.modalService.open(LogModalComponent, { fullscreen: true, scrollable: true });
   }
 
   settings() {
     const modalRef = this.modalService.open(SettingsModalComponent, { fullscreen: true });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

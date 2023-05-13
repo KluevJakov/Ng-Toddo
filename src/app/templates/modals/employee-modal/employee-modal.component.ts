@@ -29,6 +29,7 @@ export class EmployeeModalComponent implements OnInit {
   allowCreateUser: boolean = true;
   allowUploadCsv: boolean = true;
   csvFileToUpload: File | any = null;
+  csvTooltip: string = "Требуется .csv файл с маппингом полей (email,фамилия,имя,отчество,адрес,должность,телефон)";
 
   constructor(private activeModal: NgbActiveModal, 
     private http: HttpClient,
@@ -66,6 +67,7 @@ export class EmployeeModalComponent implements OnInit {
     this.creatingUser.patronymic = (document.getElementById('userPatronymic') as HTMLInputElement).value;
     this.creatingUser.address = (document.getElementById('userAddress') as HTMLInputElement).value;
     this.creatingUser.jobPosition = (document.getElementById('userJobPosition') as HTMLInputElement).value;
+    this.creatingUser.phone = (document.getElementById('userPhone') as HTMLInputElement).value;
 
     this.http.post<any>(API_URL + '/users/register', this.creatingUser, AuthService.getJwtHeaderJSON())
       .subscribe({

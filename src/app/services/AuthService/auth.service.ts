@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginComponent } from 'src/app/components/login/login.component';
+import { User } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -34,6 +35,12 @@ export class AuthService implements CanActivate {
 
   static getCurrentUser() : string{
     return sessionStorage.getItem('user')!;
+  }
+
+  static getCurrentUserObject() {
+    if (sessionStorage.getItem('user') != null) {
+      return JSON.parse(sessionStorage.getItem('user')!);
+    }
   }
 
   static getJwtHeaderJSON() {

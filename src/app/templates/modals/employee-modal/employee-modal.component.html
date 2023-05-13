@@ -14,11 +14,14 @@
                     <input class="form-control mb-1" type="text" placeholder="Отчество" id="userPatronymic" required>
                     <input class="form-control mb-1" type="text" placeholder="Адрес" id="userAddress" required>
                     <input class="form-control mb-1" type="text" placeholder="Должность" id="userJobPosition" required>
+                    <input class="form-control mb-1" type="text" placeholder="Телефон" id="userPhone" required>
                     <button class="form-control btn btn-primary mb-3" type="submit">Создать</button>
                 </form>
             </div>
             <div class="emplRow">
-                <div class="emplHdr">Пакетная загрузка пользователей (CSV): </div>
+                <div class="emplHdr">Пакетная загрузка пользователей (CSV) 
+                    <span class="user-select-none"  data-bs-toggle="tooltip" data-bs-placement="top" title="{{csvTooltip}}">(?)</span>: 
+                </div>
                 <input class="form-control mb-1" type="file" accept=".csv" (change)="handleFileInput($any($event).target.files)">
                 <input class="form-control btn btn-primary mb-3" type="button" (click)="importUser()" value="Загрузить" [disabled]="allowUploadCsv">
             </div>

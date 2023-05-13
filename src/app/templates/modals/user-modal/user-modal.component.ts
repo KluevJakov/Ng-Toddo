@@ -33,6 +33,7 @@ export class UserModalComponent implements OnInit {
     this.user.surname = (document.getElementById('userSurnameEdit') as HTMLInputElement).value;
     this.user.name = (document.getElementById('userNameEdit') as HTMLInputElement).value;
     this.user.patronymic = (document.getElementById('userPatronymicEdit') as HTMLInputElement).value;
+    this.user.phone = (document.getElementById('userPhoneEdit') as HTMLInputElement).value;
     this.user.address = (document.getElementById('userAddressEdit') as HTMLInputElement).value;
     this.user.jobPosition = (document.getElementById('userJobPositionEdit') as HTMLInputElement).value;
     this.user.department.id = parseInt((document.getElementById('depSelectEdit') as HTMLInputElement).value);

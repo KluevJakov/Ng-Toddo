@@ -14,7 +14,7 @@
             <input class="form-control mb-1" type="text" value="Наша организация" disabled>
 
             <label for="">Телефон: </label>
-            <input class="form-control mb-1" type="text" value="Телефон" disabled>
+            <input class="form-control mb-1" type="text" [value]="user.phone" disabled>
 
             <label for="">Адрес: </label>
             <input class="form-control mb-1" type="text" [value]="user.address" disabled>
@@ -58,9 +58,6 @@
 
             <label for="">Дата и время обнаружения события: </label>
             <input class="form-control mb-1" type="datetime-local" [(ngModel)]="task.detectionDate">
-
-            <label for="">Дата и время сообщения о событии: </label>
-            <input class="form-control mb-1" type="datetime-local" [(ngModel)]="task.reportDate">
 
             <div class="form-check form-switch mb-1">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [(ngModel)]="task.isEventEnd">

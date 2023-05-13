@@ -10,8 +10,7 @@
                         <span class="card-subtitle pb-2">Адрес: <span class="text-muted">{{ user.address }}</span></span>
                         <span class="card-subtitle pb-2">Департамент: <span class="text-muted">{{ user.department.name }}</span></span>
                         <span class="card-subtitle pb-2">Должность: <span class="text-muted">{{ user.jobPosition }}</span></span>
-                        <span class="card-subtitle pb-2">Роль: <span class="text-muted">{{ user.roles[0].displayName }}</span></span>
-                        <span class="card-subtitle pb-2">Дата регистрации: <span class="text-muted">{{ user.regDate }}</span></span>
+                        <span class="card-subtitle pb-2">Дата регистрации: <span class="text-muted">{{ user.regDate | date:'dd.MM.YYYY г.'}}</span></span>
                     </div>
                     <div class="w-25">
                         <img class="rounded-circle border border-4 w-100" src="assets/imgs/human.png">

@@ -9,8 +9,12 @@
         </div>
         <div class="text-center" style="width:80%">
             <div class="incdHdr">Аналитика: </div>
-            <div class="d-flex w-100">
-                
+            <div class="d-flex w-100" style="height: 600px;">
+                <ngx-charts-advanced-pie-chart
+                    [animations]="true"
+                    [results]="data"
+                    [gradient]="true">
+                </ngx-charts-advanced-pie-chart>
             </div>
         </div>
     </div>
