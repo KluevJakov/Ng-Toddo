@@ -7,6 +7,10 @@ import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 import { environment } from 'src/environments/environment';
 import { IncidentModalComponent } from '../../modals/incident-modal/incident-modal.component';
+import { EmployeeModalComponent } from '../../modals/employee-modal/employee-modal.component';
+import { AnalyzeModalComponent } from '../../modals/analyze-modal/analyze-modal.component';
+import { ArchiveModalComponent } from '../../modals/archive-modal/archive-modal.component';
+import { LogModalComponent } from '../../modals/log-modal/log-modal.component';
 
 const API_URL: string = environment.apiUrl;
 
@@ -50,5 +54,21 @@ export class ManagerProfileBlockComponent {
 
   incidents() {
     const modalRef = this.modalService.open(IncidentModalComponent, { fullscreen: true });
+  }
+
+  employee() {
+    const modalRef = this.modalService.open(EmployeeModalComponent, { fullscreen: true });
+  }
+
+  analyze() {
+    const modalRef = this.modalService.open(AnalyzeModalComponent, { fullscreen: true });
+  }
+
+  archive() {
+    const modalRef = this.modalService.open(ArchiveModalComponent, { fullscreen: true });
+  }
+
+  logs() {
+    const modalRef = this.modalService.open(LogModalComponent, { fullscreen: true, scrollable: true });
   }
 }

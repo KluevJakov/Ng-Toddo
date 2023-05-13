@@ -4,7 +4,7 @@
 </div>
 <div class="modal-body">
     <div class="container-fluid" style="display: flex;justify-content: space-around;">
-        <div class="emplCol">
+        <div class="emplCol" *ngIf="currentUser.department.id == 1">
             <div class="emplRow">
                 <div class="emplHdr">Создание профиля сотрудника: </div>
                 <form class="form-group" (ngSubmit) = "createUser()" ngNativeValidate>

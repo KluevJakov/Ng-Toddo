@@ -5,24 +5,32 @@
 <div class="modal-body">
     <form class="form-group" (submit)="editUser()" ngNativeValidate>
         <label for="userEmailEdit">Email: </label>
-        <input class="form-control mb-1" type="email" placeholder="Email" id="userEmailEdit" [value]="user.email" disabled>
+        <input class="form-control mb-1" type="email" placeholder="Email" id="userEmailEdit" 
+        [value]="user.email" [disabled]="![1,2,3].includes(currentUser.department.id)">
         <label for="userSurnameEdit">Фамилия: </label>
-        <input class="form-control mb-1" type="text" placeholder="Фамилия" id="userSurnameEdit" [value]="user.surname" required>
+        <input class="form-control mb-1" type="text" placeholder="Фамилия" id="userSurnameEdit" 
+        [value]="user.surname" [disabled]="![1,2,3].includes(currentUser.department.id)" required>
         <label for="userNameEdit">Имя: </label>
-        <input class="form-control mb-1" type="text" placeholder="Имя" id="userNameEdit" [value]="user.name" required>
+        <input class="form-control mb-1" type="text" placeholder="Имя" id="userNameEdit" 
+        [value]="user.name" [disabled]="![1,2,3].includes(currentUser.department.id)" required>
         <label for="userPatronymicEdit">Отчество: </label>
-        <input class="form-control mb-1" type="text" placeholder="Отчество" id="userPatronymicEdit" [value]="user.patronymic" required>
+        <input class="form-control mb-1" type="text" placeholder="Отчество" id="userPatronymicEdit" 
+        [value]="user.patronymic" [disabled]="![1,2,3].includes(currentUser.department.id)" required>
         <label for="userPhoneEdit">Телефон: </label>
-        <input class="form-control mb-1" type="text" placeholder="Телефон" id="userPhoneEdit" [value]="user.phone" required>
+        <input class="form-control mb-1" type="text" placeholder="Телефон" id="userPhoneEdit" 
+        [value]="user.phone" [disabled]="![1,2,3].includes(currentUser.department.id)" required>
         <label for="userAddressEdit">Адрес: </label>
-        <input class="form-control mb-1" type="text" placeholder="Адрес" id="userAddressEdit" [value]="user.address" required>
+        <input class="form-control mb-1" type="text" placeholder="Адрес" id="userAddressEdit" 
+        [value]="user.address" [disabled]="![1,2,3].includes(currentUser.department.id)" required>
         <label for="userJobPositionEdit">Должность: </label>
-        <input class="form-control mb-1" type="text" placeholder="Должность" id="userJobPositionEdit" [value]="user.jobPosition" required>
+        <input class="form-control mb-1" type="text" placeholder="Должность" id="userJobPositionEdit" 
+        [value]="user.jobPosition" [disabled]="![1,2,3].includes(currentUser.department.id)" required>
         <label for="">Департамент: </label>
-        <select class="form-control mb-1" id="depSelectEdit">
+        <select class="form-control mb-1" id="depSelectEdit" [disabled]="![1,2,3].includes(currentUser.department.id)">
             <option *ngFor="let department of departmentList" [value]="department.id">{{department.name}}</option>
         </select>
-        <button class="form-control btn btn-primary mb-3" type="submit">Редактировать</button>
+        <button *ngIf="currentUser.department.id == 1 || currentUser.department.id == 2 || currentUser.department.id == 3" 
+        class="form-control btn btn-primary mb-3" type="submit">Редактировать</button>
     </form>
 </div>
 <div class="modal-footer">

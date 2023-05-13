@@ -20,6 +20,16 @@
         </div>
 
         <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Сотрудники</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">Управляйте сотрудниками, должностями и отделами</p>
+                    <button class="btn btn-light" (click)="employee()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
                 *ngIf="this.notifyCount && this.notifyCount > 0">{{this.notifyCount}}</span>
             <div class="card-block">
@@ -27,6 +37,36 @@
                 <div class="card-body d-flex flex-column">
                     <p class="text-center">Управляйте событиями, инцидентами и документами</p>
                     <button class="btn btn-light" (click)="incidents()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Аналитика угроз и рисков</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">В этом раздере собрана статистика и производится оценка рисков</p>
+                    <button class="btn btn-light" (click)="analyze()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Архив событий и инцидентов ИБ</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">База обработанных событий и инцидентов</p>
+                    <button class="btn btn-light" (click)="archive()">Перейти</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3 cards">
+            <div class="card-block">
+                <div class="card-header h5">Журнал всех событий и инцидентов</div>
+                <div class="card-body d-flex flex-column">
+                    <p class="text-center">Полный перечень всех действий и решений</p>
+                    <button class="btn btn-light" (click)="logs()">Перейти</button>
                 </div>
             </div>
         </div>

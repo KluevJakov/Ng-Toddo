@@ -29,6 +29,7 @@ export class EmployeeModalComponent implements OnInit {
   allowCreateUser: boolean = true;
   allowUploadCsv: boolean = true;
   csvFileToUpload: File | any = null;
+  currentUser!: User;
   csvTooltip: string = "Требуется .csv файл с маппингом полей (email,фамилия,имя,отчество,адрес,должность,телефон)";
 
   constructor(private activeModal: NgbActiveModal, 
@@ -36,6 +37,7 @@ export class EmployeeModalComponent implements OnInit {
     private modalService: NgbModal) {}
 
   ngOnInit(): void {
+    this.currentUser = AuthService.getCurrentUserObject();
     this.init();
   }
 

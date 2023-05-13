@@ -21,12 +21,13 @@ const API_URL: string = environment.apiUrl;
 export class UserModalComponent implements OnInit {
   @Input() user!: User;
   @Input() departmentList!: Array<Department>;
+  currentUser!: User;
 
   constructor(private activeModal: NgbActiveModal,
     private http: HttpClient) { }
 
   ngOnInit(): void {
-
+    this.currentUser = AuthService.getCurrentUserObject();
   }
 
   editUser() {
